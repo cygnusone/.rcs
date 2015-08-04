@@ -7,8 +7,31 @@ function git-branch-prompt {
     local branch=`git-branch-name`
         if [ $branch ]; then printf " [%s]" $branch; fi
 }
-PS1="\[\033[01;32m\]\u \[\033[0;36m\]\w\[\033[0m\]\[\033[0;32m\]\$(git-branch-prompt)\[\033[0m\] \$ "
+function __host {
+    echo $HOSTNAME | awk -F'[.]' '{print "@"$2":"$3}'
+}
+
+function __getremotercs() {
+    DIR="$HOME/.rcs"
+    HOST=`echo $HOSTNAME | awk -F'[.]' '{print $2}'`
+    echo $DIR;
+    if [ ! -d "$DIR" ]; then
+        echo "It doesn't look like you have ~/.rcs/ Making it and cloning git repo";
+        mkdir $DIR;
+        cd $DIR;
+        `git clone https://github.com/cygnusone/.rcs.git`;
+    else
+        cd $DIR;
+        DIFF=`git diff`;
+        echo $DIFF;
+    fi
+}
+
+
+PS1="\[\033[01;32m\]\u\$(__host)-\[\033[0;36m\]\w\[\033[0m\]\[\033[0;32m\]\$(git-branch-prompt)\[\033[0m\] \$ "
 alias ll='ls -Glah';
 alias bashrc='vim ~/.bashrc';
 alias vimrc='vim ~/.vimrc';
 alias inputrc='vim ~/.inputrc';
+alias alpha='ssh alpha';
+__getremotercs
