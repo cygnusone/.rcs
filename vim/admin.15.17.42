@@ -1,0 +1,101 @@
+#!/usr/bin/perl
+use warnings;
+use strict;
+use CGI qw(:standard);
+use Data::Dumper;
+use Template::Alloy;
+use FindBin;
+use DBI;
+use base qw(CGI::Ex::App);
+use CGI::Ex::Dump qw(debug);
+use CGI::Ex::Auth;
+
+
+
+__PACKAGE__->navigate;
+
+sub template_path { '/home4/gpeerybl/public_html/ourscene' }
+sub base_dir_rel  { 'tt' }
+sub name_module   { 'admin' }
+
+our $base_path = $FindBin::RealBin;
+
+sub require_auth {
+    my $self = shift;
+    my $script_name = $self->script_name;
+    return 1 if $self->auth_user;
+    return 0 if $ENV{'REQUEST_URI'} =~ /^$script_name\/admin/;
+    return 1;
+}
+
+sub test_require_auth {0}
+
+sub auth_args {
+    return {
+        login_header => 'login_header.html',
+        login_footer => 'login_footer.html',
+        use_base64   => '1',
+        secure_hash_keys => [qw(aaaaaaaaaaaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbb ccccccccccccccccccccccc 2222222222222)],
+        # use_blowfish => 'my_blowfish_key',
+    };
+}
+
+sub auth_user {(shift->auth_data||{})->{'user'};}
+
+sub user_info {
+    my $self = shift;
+    return ($self->_user_info->{$self->auth_user||''}||{});
+}
+
+sub _user_info {
+    my $self = shift;
+    my $hash = {
+        jared => {
+            pass     => 'nopassword',
+            is_admin => 1,
+        },
+        ben   => {
+            pass     => 'nopassword',
+            is_admin => 1,
+        },
+    };
+
+    foreach my $key (keys %$hash) {
+        if ($hash->{$key}->{'is_admin'}) {
+            $hash->{$key}->{'base_dir'} ||= '.';
+        }
+        else {
+            $hash->{$key}->{'base_dir'} ||= $self->guest_folder;
+        }
+    }
+    return $hash;
+}
+
+sub user_base_dir { shift->user_info->{'base_dir'} || '';}
+
+sub user_auth_hash {
+    my $self = shift;
+    return {map {($_ => $self->_user_info->{$_}->{'pass'})} keys %{$self->_user_info}};
+}
+
+sub get_pass_by_user {
+    my ($self,$username) = @_;
+    $username ||= '';
+    return $self->user_auth_hash->{$username};
+}
+
+
+sub main_hash_swap {
+    my $self = shift;
+    return {
+    };
+}
+
+sub main_finalize{
+    my $self = shift;
+    $self->append_path('admin');
+    $self->set_ready_validate(0);
+    $self->goto_step(1);
+    return 1;
+
+}

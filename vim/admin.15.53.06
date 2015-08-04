@@ -1,0 +1,46 @@
+#!/usr/bin/perl
+use warnings;
+use strict;
+use CGI qw(:standard);
+use Data::Dumper;
+use Template::Alloy;
+use FindBin;
+use DBI;
+use base qw(CGI::Ex::App);
+use CGI::Ex::Dump qw(debug);
+use CGI::Ex::Auth;
+
+
+
+__PACKAGE__->navigate;
+
+sub template_path { '/home4/gpeerybl/public_html/ourscene' }
+sub base_dir_rel  { 'tt' }
+sub name_module   { 'admin' }
+
+our $base_path = $FindBin::RealBin;
+
+sub require_auth {
+    my $self = shift;
+    return 1;
+}
+
+sub get_pass {
+    my ($self, $user) = @_;
+    return $self->loopup_and_cache_pass($user);
+}
+
+sub main_hash_swap {
+    my $self = shift;
+    return {
+    };
+}
+
+sub main_finalize{
+    my $self = shift;
+    $self->append_path('admin');
+    $self->set_ready_validate(0);
+    $self->goto_step(1);
+    return 1;
+
+}
