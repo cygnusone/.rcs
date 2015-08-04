@@ -191,3 +191,5 @@ set showtabline=2
 if !has('gui')
     set term=$TERM
 endif
+
+set paste

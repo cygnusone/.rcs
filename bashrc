@@ -23,7 +23,15 @@ function __getremotercs() {
     else
         cd $DIR;
         DIFF=`git diff`;
-        echo $DIFF;
+        if [ ! $Diff ]; then
+            echo "your repo is up to date, running dotfiles link";
+            cd $HOME;
+        else
+            echo "your repo is out of date";
+            git reset --hard origin/master;
+            cd $HOME;
+        fi
+        $DIR/ln.sh;
     fi
 }
 
