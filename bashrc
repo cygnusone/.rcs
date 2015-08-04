@@ -14,24 +14,29 @@ function __host {
 function __getremotercs() {
     DIR="$HOME/.rcs"
     HOST=`echo $HOSTNAME | awk -F'[.]' '{print $2}'`
-    echo $DIR;
+    RCDIFF=`diff $HOME/.bashrc $DIR/bashrc`;
+    echo $RCDIFF;
     if [ ! -d "$DIR" ]; then
-        echo "It doesn't look like you have ~/.rcs/ Making it and cloning git repo";
-        mkdir $DIR;
-        cd $DIR;
-        `git clone https://github.com/cygnusone/.rcs.git`;
-    else
+        echo "It doesn't look like you have ~/.rcs/ cloning git repo";
+        git clone https://github.com/cygnusone/.rcs.git;
+    fi
+    if [ -d "$DIR" ]; then
         cd $DIR;
         DIFF=`git diff`;
-        if [ ! $Diff ]; then
-            echo "your repo is up to date, running dotfiles link";
-            cd $HOME;
-        else
-            echo "your repo is out of date";
+        if [ ! -z "$DIFF" ]; then
+            echo "your repo is out of date, doing a hard reset.";
             git reset --hard origin master;
-            cd $HOME;
         fi
-        $DIR/ln.sh;
+        if [ $RCDIFF ]; then
+echo "Rc diff cond";
+            echo "Your files appear to be out of date, running ln.sh to update working rcs";
+            $DIR/ln.sh;
+        fi
+    fi
+    if [ $HOST != 'employee-macbook' ]; then
+        cd /var/hp/;
+    else
+        cd $HOME;
     fi
 }
 

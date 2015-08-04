@@ -179,7 +179,6 @@ set smartindent
 set shiftround
 
 " Mouse
-set mouse=nicr
 
 " Tabs
 set expandtab
