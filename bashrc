@@ -27,8 +27,7 @@ function __getremotercs() {
             echo "your repo is out of date, doing a hard reset.";
             git reset --hard origin master;
         fi
-        if [ $RCDIFF ]; then
-echo "Rc diff cond";
+        if [ -z "$RCDIFF" ]; then
             echo "Your files appear to be out of date, running ln.sh to update working rcs";
             $DIR/ln.sh;
         fi
