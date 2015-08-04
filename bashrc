@@ -28,7 +28,7 @@ function __getremotercs() {
             cd $HOME;
         else
             echo "your repo is out of date";
-            git reset --hard origin/master;
+            git reset --hard origin master;
             cd $HOME;
         fi
         $DIR/ln.sh;
