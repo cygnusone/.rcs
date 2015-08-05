@@ -1,0 +1,54 @@
+remove plugs except vundle
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Changes to be committed:
+#	deleted:    vim/.gitignore
+#	deleted:    vim/.netrwhist
+#	deleted:    vim/Vundle.vim/.gitignore
+#	deleted:    vim/Vundle.vim/CONTRIBUTING.md
+#	deleted:    vim/Vundle.vim/LICENSE-MIT.txt
+#	deleted:    vim/Vundle.vim/README.md
+#	deleted:    vim/Vundle.vim/autoload/vundle.vim
+#	deleted:    vim/Vundle.vim/autoload/vundle/config.vim
+#	deleted:    vim/Vundle.vim/autoload/vundle/installer.vim
+#	deleted:    vim/Vundle.vim/autoload/vundle/scripts.vim
+#	deleted:    vim/Vundle.vim/changelog.md
+#	deleted:    vim/Vundle.vim/doc/vundle.txt
+#	deleted:    vim/Vundle.vim/test/files/test.erl
+#	deleted:    vim/Vundle.vim/test/minirc.vim
+#	deleted:    vim/Vundle.vim/test/vimrc
+#	deleted:    vim/admin.15.13.58
+#	deleted:    vim/admin.15.14.55
+#	deleted:    vim/admin.15.17.30
+#	deleted:    vim/admin.15.17.42
+#	deleted:    vim/admin.15.28.03
+#	deleted:    vim/admin.15.52.45
+#	deleted:    vim/admin.15.53.06
+#	deleted:    vim/autoload/pathogen.vim
+#	deleted:    vim/autoload/zencoding.vim
+#	new file:   vim/bundle/Vundle.vim
+#	deleted:    vim/colors/molokai.vim
+#	deleted:    vim/matchparen++.vim
+#	deleted:    vim/oceanblack.vim
+#	deleted:    vim/oceandeep.vim
+#	deleted:    vim/oceanlight.vim
+#	deleted:    vim/pathogen.vim
+#	deleted:    vim/spell/en.utf-8.add
+#	deleted:    vim/spell/en.utf-8.add.spl
+#	deleted:    vim/syntax/css.vim
+#	deleted:    vim/syntax/perl.vim
+#	deleted:    vim/syntax/perl6.vim
+#	deleted:    vim/syntax/pod.vim
+#	deleted:    vim/syntax/tt2.vim
+#	deleted:    vim/syntax/tt2html.vim
+#	deleted:    vim/syntax/tt2js.vim
+#	deleted:    vim/syntax/xs.vim
+#	deleted:    vim/vim
+#	deleted:    vim/zencoding.vim
+#	deleted:    vim/zencoding/lang/css.vim
+#	deleted:    vim/zencoding/lang/haml.vim
+#	deleted:    vim/zencoding/lang/html.vim
+#	deleted:    vim/zencoding/lang/slim.vim
+#	deleted:    vim/zencoding/util.vim
+#
