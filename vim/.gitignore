@@ -1,8 +1,0 @@
-backup/**
-bundle/**
-undo/**
-view/**
-verbose.log
-!bundle/neobundle.vim
-!bundle/unite.vim
-!bundle/Vundle.vim
