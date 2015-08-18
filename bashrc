@@ -13,7 +13,7 @@ function __host {
 function __dorc {
     DIR="$HOME/.rcs"
     HOST=`echo $HOSTNAME | awk -F'[.]' '{print $2}'`
-    if [ $HOST != 'employee-macbook' ]; then
+    #if [ $HOST != 'employee-macbook' ]; then
         if [ ! -d "$DIR" ]; then
             echo "It doesn't look like you have ~/.rcs/ cloning git repo";
             git clone https://github.com/cygnusone/.rcs.git;
@@ -30,11 +30,10 @@ function __dorc {
         else
             cd $HOME;
         fi
-    fi
+    #fi
 }
 PS1="\[\033[01;32m\]\u\$(__host)-\[\033[0;36m\]\w\[\033[0m\]\[\033[0;32m\]\$(git-branch-prompt)\[\033[0m\] \$ "
 alias ll='ls -Glah';
 alias bashrc='vim ~/.bashrc';
 alias vimrc='vim ~/.vimrc';
 alias inputrc='vim ~/.inputrc';
-__dorc;
