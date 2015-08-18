@@ -8,32 +8,12 @@ function git-branch-prompt {
         if [ $branch ]; then printf " [%s]" $branch; fi
 }
 function __host {
-    echo $HOSTNAME | awk -F'[.]' '{print "@"$2":"$3}'
+    echo $HOSTNAME | awk -F'[.]' '{print $2}'
 }
-function __dorc {
-    DIR="$HOME/.rcs"
-    HOST=`echo $HOSTNAME | awk -F'[.]' '{print $2}'`
-    #if [ $HOST != 'employee-macbook' ]; then
-        if [ ! -d "$DIR" ]; then
-            echo "It doesn't look like you have ~/.rcs/ cloning git repo";
-            git clone https://github.com/cygnusone/.rcs.git;
-        fi
-
-        RCDIFF=`diff $HOME/.vimrc $DIR/vimrc`;
-        if [ ! -z "$RCDIFF" ]; then
-            echo "would have got a new .rcs";
-            #rm -rf $DIR;
-            #git clone https://github.com/cygnusone/.rcs.git;
-        fi
-        if [ $HOST != 'employee-macbook' ]; then
-            cd /var/hp/;
-        else
-            cd $HOME;
-        fi
-    #fi
-}
-PS1="\[\033[01;32m\]\u\$(__host)-\[\033[0;36m\]\w\[\033[0m\]\[\033[0;32m\]\$(git-branch-prompt)\[\033[0m\] \$ "
+PS1="\n$(tput setaf 1)\](-\[$(tput setaf 7)\]o\[$(tput setaf 1)\]-)\[$(tput setaf 1)\]\[$(tput sgr0)\]\[$(tput setaf 2)\] [ \w ] \$(tput setaf 1)\](-\[$(tput setaf 7)\]o\[$(tput setaf 1)\]-)\[$(tput setaf 1)\]\[$(tput sgr0)\]\[$(tput setaf 2)\]$(tput sgr0)\]\n\u@\$(__host)\[\033[0;36m\]\[\033[0m\]\[\033[0;32m\]:\$(git-branch-prompt)\[\033[0m\] $ "
+PS2="\[$(tput setaf 0)\]\u@\$(__host):\w\$(git-branch-prompt)\[$(tput sgr0)\] "
 alias ll='ls -Glah';
 alias bashrc='vim ~/.bashrc';
 alias vimrc='vim ~/.vimrc';
 alias inputrc='vim ~/.inputrc';
+alias tag_beta='/var/hp/dev/bin/tag_beta';

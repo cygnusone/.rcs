@@ -11,28 +11,13 @@
 
 preexec() {
 }
-
-local git=$(git_prompt_info)
-if [ ${#git} != 0 ]; then
-    [(git=${#git} - 10)]
-else
-    git=0
-fi
-
-
-if [ $UID -eq 0 ]; then NCOLOR="red"; else NCOLOR="green"; fi
 local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
-
-_newline=$'\n'
-_lineup=$'\e[1A'
-_linedown=$'\e[1B'
-
 
 # Two line prompt with "status bar" below main prompt
 #PROMPT=$'$fg[white]\n\n $(git_prompt_info)$my_gray%n@%M %{$reset_color%}%FG[237] %d\e[100D\e[A $fg[white]$: '
 
 # primary prompt
-PROMPT+=$'[%n@%m] $fg[green][%~/]%{$reset_color%} $(git_prompt_info)'
+PROMPT=$'%n@%-3M$fg[green][%~/]%{$reset_color%} $(git_prompt_info)'
 PROMPT+=$'\n$: '
 
 

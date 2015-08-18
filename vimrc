@@ -1,4 +1,5 @@
 " Hello Vim, goodbye Vi
+
 set nocompatible
 syntax off
 filetype off
@@ -58,7 +59,7 @@ filetype plugin indent on    " required
 " General Mappings
 let mapleader = ','
 nnoremap ; :
-nnoremap q :
+nnoremap W w
 vnoremap < <gv
 vnoremap > >gv
 cmap w!! w !sudo tee % >/dev/null
@@ -85,10 +86,10 @@ nmap ,t :s#<[^>]\+>##g<CR>:nohls<CR>
 nmap ,u :GundoToggle<CR>
 nmap ,v :tabe ~/.vimrc<CR>
 set pastetoggle=<C-H>
-:ca WQ wq
-:ca Wq wq
-:ca W w
-:ca Q q
+command WQ wq
+command Wq wq
+command W w
+command Q q
 :ca m MRU
 :ca length call LengthSort()
 :ca Length length
@@ -101,10 +102,10 @@ let g:user_zen_prev_key = '<C-K>'
 " Tab Management
 set tabpagemax=15
 nmap tq <Esc>:q<CR>
-nmap tp <Esc>:tabp<CR>
-nmap tn <Esc>:tabn<CR>
+nmap re <Esc>:tabp<CR>
+nmap er <Esc>:tabn<CR>
 nmap tm <Esc>:tabm
-nmap te <Esc>:tabe /var/www/|
+nmap NN <Esc>:tabe 
 map <D-PageUp> <Esc>:tabp<CR>
 map <D-PageDown> <Esc>:tabn<CR>
 
