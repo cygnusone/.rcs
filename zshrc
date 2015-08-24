@@ -1,5 +1,6 @@
 # Important
 export CLICOLOR=1
+export EDITOR=/usr/bin/vim;
 ZSH=$HOME/.omz
 ZSH_CUSTOM=$HOME/.zsh
 ZSH_THEME='af-magic'

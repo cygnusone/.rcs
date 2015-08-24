@@ -17,3 +17,4 @@ alias bashrc='vim ~/.bashrc';
 alias vimrc='vim ~/.vimrc';
 alias inputrc='vim ~/.inputrc';
 alias tag_beta='/var/hp/dev/bin/tag_beta';
+sh -c /bin/bash
