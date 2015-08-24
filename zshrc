@@ -129,6 +129,8 @@ alias watch='watch --color'
 alias urc='source ~/.zshrc'
 alias tag_beta='/var/hp/dev/bin/tag_beta'
 alias tag_live='/var/hp/dev/bin/tag_live'
+alias rcs_git='git clone https://github.com/gabrielpeery/.rcs.git';
+alias vundle='git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim'
 
 # Services
 alias sudo='nocorrect sudo'

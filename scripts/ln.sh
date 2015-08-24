@@ -8,25 +8,25 @@
 
 dotfiles=$HOME/.rcs                                                                                       # Current dotfiles directory
 backup=$HOME/_back.rcs                                                                                     # Backup dotfiles directory
-files=`ls $dotfiles | grep -v "ln.sh" | grep -iv "readme" | grep "rc" | perl -CS -pe 's/\p{Space}/ /g'`             # Generate a list of files
+files=`ls $dotfiles | grep -v "ln.sh" | grep -iv "readme" | grep -iv "Vundle" | perl -CS -pe 's/\p{Space}/ /g'`             # Generate a list of files
 list=`echo $files | perl -CS -pe 's/\p{Space}/, /g' | sed -e 's/, $//'`                                     # Generate human-readable list
 
 echo "Found files: $list" && echo
 echo "$files" && echo
-if [ ! -d $dotfiles ]; then
-    mkdir -p $dotfiles
-fi
-
-if [ ! -d $backup ]; then
-    mkdir -p $backup
-fi
-
-cd $dotfiles
-for file in $files; do
-    if [ -a $HOME/.$file ]; then
-        mv -f $HOME/.$file $backup/$file
-    fi
-    ln -s $dotfiles/$file $HOME/.$file
-done
-
-echo && echo "Finished!"
+#if [ ! -d $dotfiles ]; then
+#    mkdir -p $dotfiles
+#fi
+#
+#if [ ! -d $backup ]; then
+#    mkdir -p $backup
+#fi
+#
+#cd $dotfiles
+#for file in $files; do
+#    if [ -a $HOME/.$file ]; then
+#        mv -f $HOME/.$file $backup/$file
+#    fi
+#    ln -s $dotfiles/$file $HOME/.$file
+#done
+#
+#echo && echo "Finished!"

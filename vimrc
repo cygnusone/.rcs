@@ -5,7 +5,7 @@ syntax off
 filetype off
 call pathogen#infect()
 syntax on
-colorscheme molokai
+colorscheme seti
 
 " General Settings
 set anti
