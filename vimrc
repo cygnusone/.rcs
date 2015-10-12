@@ -1,11 +1,10 @@
 " Hello Vim, goodbye Vi
 
 set nocompatible
-syntax off
 filetype off
 call pathogen#infect()
 syntax on
-colorscheme seti
+colorscheme defims
 
 " General Settings
 set anti
@@ -102,11 +101,11 @@ let g:user_zen_prev_key = '<C-K>'
 
 " Tab Management
 set tabpagemax=15
-nmap tq <Esc>:q<CR>
-nmap re <Esc>:tabp<CR>
-nmap er <Esc>:tabn<CR>
-nmap tm <Esc>:tabm
-nmap NN <Esc>:tabe 
+nmap ,tq <Esc>:q<CR>
+nmap ,re <Esc>:tabp<CR>
+nmap ,er <Esc>:tabn<CR>
+nmap ,tm <Esc>:tabm
+nmap ,n <Esc>:tabe 
 map <D-PageUp> <Esc>:tabp<CR>
 map <D-PageDown> <Esc>:tabn<CR>
 
@@ -192,5 +191,3 @@ set showtabline=2
 if !has('gui')
     set term=$TERM
 endif
-
-set paste

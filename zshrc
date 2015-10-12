@@ -131,6 +131,7 @@ alias tag_beta='/var/hp/dev/bin/tag_beta'
 alias tag_live='/var/hp/dev/bin/tag_live'
 alias rcs_git='git clone https://github.com/gabrielpeery/.rcs.git';
 alias vundle='git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim'
+alias get='git'
 
 # Services
 alias sudo='nocorrect sudo'
@@ -172,3 +173,22 @@ alias ga='git add'
 alias gc='git commit'
 alias gp='git push origin master'
 alias gl='git pull origin'
+
+
+bopen() {
+    if [[ $1 == 'alpha' ]]; then
+        if [[ $2 == 'all_brands' ]]; then
+            `/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window "http://www.$3.alpha.bluehost.com/$4" "http://www.$3.alpha.hostmonster.com/$4" "http://www.$3.alpha.justhost.com/$4" "http://www.$3.alpha.fastdomain.com/$4" "http://www.$3.alpha.hostgator.sg/$4"`
+        fi;
+    fi;
+    if [[ $1 == 'beta' ]]; then
+        if [[ $2 == 'all_brands' ]]; then
+            `/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window "http://www$4.betabh.com/$3" "http://www$4.betahm.com/$3" "http://www$4.betajh.com/$3" "http://www$4.betafd.com/$3" "http://www$4.beta.hostgator.sg/$3"`
+        fi;
+    fi;
+    if [[ $1 == 'live' ]]; then
+        if [[ $2 == 'all_brands' ]]; then
+            `/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window "http://www.bluehost.com/$3" "http://www.hostmonster.com/$3" "http://www.justhost.com/$3" "http://www.fastdomain.com/$3" "http://www.hostgator.sg/$3"`
+        fi;
+    fi;
+}
