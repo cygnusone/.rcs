@@ -132,6 +132,12 @@ alias tag_live='/var/hp/dev/bin/tag_live'
 alias rcs_git='git clone https://github.com/gabrielpeery/.rcs.git';
 alias vundle='git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim'
 alias get='git'
+alias common='cd /var/hp/common'
+alias my='cd /var/hp/my'
+alias media='cd /var/hp/media'
+alias web='cd /var/hp/web'
+alias internal='cd /var/hp/internal'
+alias core_lib='cd /var/core_lib'
 
 # Services
 alias sudo='nocorrect sudo'
