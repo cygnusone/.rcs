@@ -13,12 +13,22 @@ preexec() {
 }
 local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 
+host_parse(){
+    if [[ $HOME =~ 'alpha' ]] 
+        then 
+            echo $(echo $HOST | awk -F'.' '{print $2 "." $1}')
+        else 
+            echo "home"
+    fi
+}
+
 # Two line prompt with "status bar" below main prompt
 #PROMPT=$'$fg[white]\n\n $(git_prompt_info)$my_gray%n@%M %{$reset_color%}%FG[237] %d\e[100D\e[A $fg[white]$: '
 
 # primary prompt
 PROMPT=$'$fg[green][%~/]%{$reset_color%}'
-PROMPT+=$'\n%n@%m : '
+PROMPT+=$'\n%n@'
+PROMPT+='$(host_parse): '
 RPROMPT='$(git_prompt_info)'
 
 # color vars
