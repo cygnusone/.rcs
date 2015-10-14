@@ -3,7 +3,8 @@ export CLICOLOR=1
 export EDITOR=/usr/bin/vim;
 ZSH=$HOME/.omz
 ZSH_CUSTOM=$HOME/.zsh
-ZSH_THEME='af-magic'
+#ZSH_THEME='af-magic'
+ZSH_THEME="powerlevel9k/powerlevel9k"
 DISABLE_AUTO_TITLE='true'
 plugins=(vundle yum git) #removed git
 source $ZSH/oh-my-zsh.sh
@@ -24,6 +25,11 @@ autoload -U url-quote-magic
 autoload -Uz compdef
 autoload colors; colors;
 autoload read_write
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git svn
+precmd() {
+        vcs_info
+    }
 #Last
 autoload -Uz compinit; compinit;
 
@@ -91,9 +97,6 @@ zstyle ':completion:*:match:*' original only
 zstyle ':completion:history-words:*' list no
 zstyle ':completion:history-words:*' menu yes
 zstyle ':completion:history-words:*' remove-all-dups yes
-zstyle ':vcs_info:*' enable cvs
-zstyle ':vcs_info:(cvs):*' get-revision true
-zstyle ':vcs_info:(cvs):*' check-for-changes true
 zstyle '*' single-ignored show
 zstyle ':completion:*:*:*:users' ignored-patterns \
         adm amanda apache avahi beaglidx bin cacti canna clamav daemon \
@@ -198,3 +201,11 @@ bopen() {
         fi;
     fi;
 }
+
+
+# Powerline stuffs
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=$'\uE0B1'
+POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=$'\uE0B3'
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vcs)
