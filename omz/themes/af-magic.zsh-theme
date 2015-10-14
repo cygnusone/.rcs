@@ -14,7 +14,7 @@ preexec() {
 local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 
 host_parse(){
-    if [[ $HOME =~ 'alpha' ]] 
+    if [[ $HOST =~ 'alpha' ]] 
         then 
             echo $(echo $HOST | awk -F'.' '{print $2 "." $1}')
         else 
