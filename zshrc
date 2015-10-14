@@ -3,8 +3,8 @@ export CLICOLOR=1
 export EDITOR=/usr/bin/vim;
 ZSH=$HOME/.omz
 ZSH_CUSTOM=$HOME/.zsh
-#ZSH_THEME='af-magic'
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME='af-magic'
+#ZSH_THEME="powerlevel9k/powerlevel9k"
 DISABLE_AUTO_TITLE='true'
 plugins=(vundle yum git) #removed git
 source $ZSH/oh-my-zsh.sh
@@ -203,9 +203,7 @@ bopen() {
 }
 
 
-# Powerline stuffs
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=$'\uE0B1'
-POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=$'\uE0B3'
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vcs)
+## Powerline stuffs
+#POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir)
+#POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vcs)

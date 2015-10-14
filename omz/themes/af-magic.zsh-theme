@@ -17,9 +17,9 @@ local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 #PROMPT=$'$fg[white]\n\n $(git_prompt_info)$my_gray%n@%M %{$reset_color%}%FG[237] %d\e[100D\e[A $fg[white]$: '
 
 # primary prompt
-PROMPT=$'%n@%-3M$fg[green][%~/]%{$reset_color%} $(git_prompt_info)'
-PROMPT+=$'\n$: '
-
+PROMPT=$'$fg[green][%~/]%{$reset_color%}'
+PROMPT+=$'\n%n@%m : '
+RPROMPT='$(git_prompt_info)'
 
 # color vars
 eval my_gray='$FG[237]'
