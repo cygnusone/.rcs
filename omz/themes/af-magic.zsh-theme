@@ -26,10 +26,10 @@ host_parse(){
 #PROMPT=$'$fg[white]\n\n $(git_prompt_info)$my_gray%n@%M %{$reset_color%}%FG[237] %d\e[100D\e[A $fg[white]$: '
 
 # primary prompt
-PROMPT=$'$fg[green][%~/]%{$reset_color%}'
+PROMPT=$'$(git_prompt_info)$fg[green][%~/]%{$reset_color%}'
 PROMPT+=$'\n%n@'
 PROMPT+='$(host_parse): '
-RPROMPT='$(git_prompt_info) '
+#RPROMPT='$(git_prompt_info) '
 
 # color vars
 eval my_gray='$FG[237]'
@@ -38,8 +38,8 @@ eval my_orange='$FG[214]'
 # right prompt
 
 # git settings
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[blue]%}("
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[blue]%}["
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY=")%{$fg[red]%}!!"
-ZSH_THEME_GIT_PROMPT_UNTRACKED=")%{$fg[green]%}??"
-ZSH_THEME_GIT_PROMPT_CLEAN=")"
+ZSH_THEME_GIT_PROMPT_DIRTY="]%{$fg[yellow]%}[*]"
+ZSH_THEME_GIT_PROMPT_UNTRACKED=")%{$fg[green]%}[?]"
+ZSH_THEME_GIT_PROMPT_CLEAN="][ ]"
