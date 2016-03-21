@@ -85,7 +85,7 @@ nmap ,s :source ~/.vimrc<CR>
 nmap ,t :s#<[^>]\+>##g<CR>:nohls<CR>
 nmap ,u :GundoToggle<CR>
 nmap ,v :tabe ~/.vimrc<CR>
-set pastetoggle=<C-H>
+set pastetoggle=<f2>
 command WQ wq
 command Wq wq
 command W w

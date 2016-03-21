@@ -18,7 +18,7 @@ host_parse(){
         then 
             echo $(echo $HOST | awk -F'.' '{print $2 "." $1}')
         else 
-            echo "home"
+            echo "local"
     fi
 }
 

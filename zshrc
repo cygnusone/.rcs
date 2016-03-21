@@ -154,6 +154,7 @@ alias mysql='nocorrect mysql'
 alias png="perl -e'for my \$png (<*.png>) { system(qq{optipng \$png});}'"
 alias jpg="perl -e'for my \$jpg (<*.jpg>) { system(qq{jpegoptim --strip-all \$jpg});}'"
 alias gif="perl -e'for my \$gif (<*.gif>) { system(qq{optipng \$gif});}'"
+alias alpha="ssh alpha"
 
 # Dot files
 alias rz='rm -f $HOME/.zcompdump && exec zsh'
@@ -203,7 +204,23 @@ bopen() {
 }
 
 
+host_parse(){
+    if [[ $HOST =~ 'alpha' ]] 
+        then 
+            echo $(echo $HOST | awk -F'.' '{print $2 "." $1}')
+        else 
+            echo "home"
+    fi
+}
+
+echo -ne "\033]0;$(host_parse)\007"
+
 ## Powerline stuffs
 #POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 #POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir)
 #POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vcs)
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+iterm2_print_user_vars() {
+      iterm2_set_user_var gitBranch $((git branch 2> /dev/null) | grep \* | cut -c3-)
+  }

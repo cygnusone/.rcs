@@ -10,8 +10,7 @@ function git-branch-prompt {
 function __host {
     echo $HOSTNAME | awk -F'[.]' '{print $2}'
 }
-PS1="\n$(tput setaf 1)\](-\[$(tput setaf 7)\]o\[$(tput setaf 1)\]-)\[$(tput setaf 1)\]\[$(tput sgr0)\]\[$(tput setaf 2)\] [ \w ] \$(tput setaf 1)\](-\[$(tput setaf 7)\]o\[$(tput setaf 1)\]-)\[$(tput setaf 1)\]\[$(tput sgr0)\]\[$(tput setaf 2)\]$(tput sgr0)\]\n\u@\$(__host)\[\033[0;36m\]\[\033[0m\]\[\033[0;32m\]:\$(git-branch-prompt)\[\033[0m\] $ "
-PS2="\[$(tput setaf 0)\]\u@\$(__host):\w\$(git-branch-prompt)\[$(tput sgr0)\] "
+PS2=" $"
 alias ll='ls -Glah';
 alias bashrc='vim ~/.bashrc';
 alias vimrc='vim ~/.vimrc';
