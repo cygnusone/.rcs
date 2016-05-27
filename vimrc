@@ -52,6 +52,7 @@ Bundle 'inkarkat/vcscommand.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'othree/html5-syntax.vim'
 Bundle 'miripiruni/CSScomb-for-Vim'
+Plugin 'mattn/emmet-vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -94,10 +95,18 @@ command Q q
 :ca length call LengthSort()
 :ca Length length
 command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
-" Zencoding Mappings
-let g:user_zen_leader_key = '<C-J>'
-let g:user_zen_next_key = '<C-L>'
-let g:user_zen_prev_key = '<C-K>'
+
+
+
+" emmet Junk
+let g:user_emmet_leader_key = '<C-L>'
+let g:user_emmet_next_key = '<C-J>'
+let g:user_emmet_prev_key = '<C-K>'
+let g:user_emmet_mode='a'
+nmap <s-tab> :call emmet#expandAbbr(3,'')<CR>
+let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.snippets.json')), "\n"))
+"let g:user_emmet_settings = em_settings#settings()
+
 
 " Tab Management
 set tabpagemax=15
