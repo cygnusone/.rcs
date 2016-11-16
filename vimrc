@@ -52,7 +52,12 @@ Bundle 'inkarkat/vcscommand.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'othree/html5-syntax.vim'
 Bundle 'miripiruni/CSScomb-for-Vim'
-Plugin 'mattn/emmet-vim'
+Bundle 'mattn/emmet-vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'terryma/vim-multiple-cursors'
+Bundle "hlissner/vim-multiedit"
+Bundle 'csscomb/vim-csscomb'
+Bundle 'Lokaltog/vim-powerline'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -67,7 +72,6 @@ cmap w!! w !sudo tee % >/dev/null
 command! -nargs=? Vdiff :VCSVimDiff <args>
 map <C-O> <Esc>o
 map! <C-O> <Esc>o
-nmap <C-I> :call zencoding#imageSize()<CR>
 map :cc :VCSCommit<CR>
 map :ws :%s/\s\+$//<CR>
 map :img /\v\<img.*>&(.*width)@!<CR>
@@ -78,7 +82,7 @@ nmap ,d :Vdiff HEAD<CR>
 nmap ,,d :Vdiff
 nmap ,g :%s/^$\n//cgi<CR>
 nmap ,l :VCSLog<CR>
-nmap ,m :SessionSave<CR>
+"nmap ,m :SessionSave<CR>
 nmap ,o :MRU<CR>
 nmap ,p :SessionList<CR>
 nmap ,q :!sudo service httpd graceful<CR>
@@ -86,7 +90,11 @@ nmap ,s :source ~/.vimrc<CR>
 nmap ,t :s#<[^>]\+>##g<CR>:nohls<CR>
 nmap ,u :GundoToggle<CR>
 nmap ,v :tabe ~/.vimrc<CR>
+nmap ,r <Esc>:reg<CR>
 set pastetoggle=<f2>
+nmap <F3> :%s/\s\+$//<CR>
+nmap <F5> :set invnumber<CR>
+nmap ,c :noh<CR>
 command WQ wq
 command Wq wq
 command W w
@@ -95,8 +103,11 @@ command Q q
 :ca length call LengthSort()
 :ca Length length
 command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
+nnoremap <silent> <C-Up> <c-e>
+nnoremap <silent> <C-Down> <c-y>
 
-
+" Emmet vim stuff
+let g:user_emmet_mode='a'
 
 " emmet Junk
 let g:user_emmet_leader_key = '<C-L>'
@@ -105,8 +116,6 @@ let g:user_emmet_prev_key = '<C-K>'
 let g:user_emmet_mode='a'
 nmap <s-tab> :call emmet#expandAbbr(3,'')<CR>
 let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.snippets.json')), "\n"))
-"let g:user_emmet_settings = em_settings#settings()
-
 
 " Tab Management
 set tabpagemax=15
@@ -200,3 +209,6 @@ set showtabline=2
 if !has('gui')
     set term=$TERM
 endif
+
+" File Cleanup
+

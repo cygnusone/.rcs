@@ -17,6 +17,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 SAVEHIST=100000
 HISTSIZE=100000
 umask 002
+unsetopt correct_all
 
 
 #Autoloads
@@ -120,7 +121,6 @@ alias history='fc -l 1'
 alias less='less -R'
 alias l='ls'
 alias ll='ls -AFlh'
-#alias ls='ls -AFlh'
 alias sl='ls'
 alias man='nocorrect man'
 alias mkdir='nocorrect mkdir -p'
@@ -143,6 +143,20 @@ alias media/core='cd /var/hp/media/core'
 alias web='cd /var/hp/web'
 alias internal='cd /var/hp/internal'
 alias core_lib='cd /var/core_lib'
+
+# HAL
+alias hal=/var/hal_server/bin/hal
+# The following are just extra convenience. All commands can be reached through hal.
+# # ex: "hal addon_list" becomes "addon list" if you have the addon alias
+alias san=/var/hal_server/bin/san
+alias box=/var/hal_server/bin/box
+alias os=/var/hal_server/bin/os
+alias net=/var/hal_server/bin/net
+alias addon=/var/hal_server/bin/addon
+alias server=/var/hal_server/bin/server
+
+# hp
+alias hp=/var/hp/internal/bin/hp
 
 # Services
 alias sudo='nocorrect sudo'
@@ -183,8 +197,16 @@ alias u='cvs -q update -Pd'
 # Git
 alias ga='git add'
 alias gc='git commit'
-alias gp='git push origin master'
-alias gl='git pull origin'
+alias gpush='git push origin master'
+alias gpull='git pull origin'
+alias checkout_hp='/var/hp/dev/bin/checkout_hp'
+alias gfix='~/bin/git_fix'
+
+# Helpers
+alias _pd='PROV=bh perl -d -e1 -I/var/core_lib/lib -I/var/hp/my/lib -I/var/hp/internal/lib -I/var/hp/common/lib -I/var/hp/web/lib -I/var/hp/roster/lib';
+
+compdef _path_files vim
+compdef _path_files cd
 
 
 bopen() {
@@ -225,4 +247,5 @@ echo -ne "\033]0;$(host_parse)\007"
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 iterm2_print_user_vars() {
       iterm2_set_user_var gitBranch $((git branch 2> /dev/null) | grep \* | cut -c3-)
-  }
+}
+# cd /var/hp
