@@ -41,7 +41,6 @@ call vundle#begin()
 Bundle 'gmarik/vundle'
 Bundle 'mru.vim'
 Bundle 'CSSMinister'
-Bundle 'watchdog.vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'mattn/gist-vim'
 Bundle 'mattn/webapi-vim'
@@ -58,6 +57,8 @@ Bundle 'terryma/vim-multiple-cursors'
 Bundle "hlissner/vim-multiedit"
 Bundle 'csscomb/vim-csscomb'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'jiangmiao/auto-pairs'
+Bundle 'terryma/vim-expand-region'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
