@@ -1,0 +1,13 @@
+[user]
+    email = gpeery@bluehost.com
+    name = gpeery@bluehost.com
+[format]
+    pretty = %Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset
+[push]
+    default = current
+[pull]
+    default = current
+[merge]
+    default = current
+[diff]
+    tool = vimdiff
