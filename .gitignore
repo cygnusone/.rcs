@@ -43,6 +43,7 @@ Thumbs.db
 *.netrwhist
 *vim/backup*
 *vim/bundle*
+*vim/plugged*
 *private.*
 *vim/undo*
 *vim/view*

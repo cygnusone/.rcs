@@ -2,7 +2,6 @@
 
 set nocompatible
 filetype off
-call pathogen#infect()
 syntax on
 colorscheme defims
 
@@ -33,34 +32,6 @@ if has("gui_running")
     endif
 endif
 
-
-" Bundles (Vundle)
-"set rtp+=~/.vim/plugin/vundle/
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Bundle 'gmarik/vundle'
-Bundle 'mru.vim'
-Bundle 'CSSMinister'
-Bundle 'sjl/gundo.vim'
-Bundle 'mattn/gist-vim'
-Bundle 'mattn/webapi-vim'
-Bundle 'godlygeek/tabular'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-markdown'
-Bundle 'inkarkat/vcscommand.vim'
-Bundle 'pangloss/vim-javascript'
-Bundle 'othree/html5-syntax.vim'
-Bundle 'miripiruni/CSScomb-for-Vim'
-Bundle 'mattn/emmet-vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle "hlissner/vim-multiedit"
-Bundle 'csscomb/vim-csscomb'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'jiangmiao/auto-pairs'
-Bundle 'terryma/vim-expand-region'
-
-call vundle#end()            " required
 filetype plugin indent on    " required
 
 " General Mappings
@@ -115,7 +86,8 @@ let g:user_emmet_leader_key = '<C-L>'
 let g:user_emmet_next_key = '<C-J>'
 let g:user_emmet_prev_key = '<C-K>'
 let g:user_emmet_mode='a'
-nmap <s-tab> :call emmet#expandAbbr(3,'')<CR>
+" nmap <s-tab> :call emmet#expandAbbr(3,'')<CR>
+map <C-tab> :call emmet#expandAbbr(3,'')<CR>
 let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.snippets.json')), "\n"))
 
 " Tab Management
@@ -211,5 +183,5 @@ if !has('gui')
     set term=$TERM
 endif
 
-" File Cleanup
 
+runtime plugins.vim
