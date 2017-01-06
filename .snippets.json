@@ -1,0 +1,10 @@
+{
+    "html": {
+        "snippets": {
+            "tt:lex" : "[% lex(\"|\") %]",
+            "p:b"    : "<dom-module id='|'>\n\n<template>\n\t<style>\n\t</style>\n</template>\n\n<script>\n\tPolymer({\n\t\tis: '',\n\t\tproperties: {\n\t\t},\n\t\tobservers: [\n\t\t],\n\t});\n</script>\n\n</dom-module>",
+            "p:lex"  : "{{lex(\"|\")}}",
+            "p:t"    : "<template is=\"${1}\">\n</template>"
+        }
+    }
+}

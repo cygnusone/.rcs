@@ -1,0 +1,52 @@
+rethinkDB
+
+
+[arrays] are everything
+    mutators:
+        mutate array
+            [].sort(function(a,b){
+                return b - a; // learn this ish!
+            });
+            [].fill() // fills array with a value, does not accept a callback
+    accessers:
+        [].join(','): returns '0
+        [].toLacaleString() // returns the locale browser info in a string
+        [].includes
+    iterators:
+        [].forEach()\
+
+        [].reduce() // 
+        [].filter() // returns everything except the contition in call back
+        [].find()
+        [].findIndex()
+
+
+        [].forEach() // returns undefined
+        These are things to learn NOW!
+            [].keys()
+            [].values()
+            [].entries()
+
+Harnessing the power of Abstract Syntax Trees
+    parsers:
+        acorn
+        esprima
+        espree
+
+        babel?
+        jscodeshift
+        eslint
+    nodes:
+        estree
+        esrecurse
+
+the future of stylesheets
+    postcss
+        cssnext
+        css modules
+
+
+promise to not use promises
+    observable and observers:
+        learnrx
+        react 
