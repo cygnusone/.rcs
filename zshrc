@@ -17,7 +17,6 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 SAVEHIST=100000
 HISTSIZE=100000
 umask 002
-unsetopt correct_all
 
 
 #Autoloads
@@ -36,15 +35,16 @@ autoload -Uz compinit; compinit;
 
 # ZSH Options
 setopt always_to_end
+setopt always_last_prompt
 setopt appendhistory
-setopt autocd
+setopt auto_cd
 setopt auto_continue
 setopt auto_menu
-setopt auto_remove_slash
-setopt bash_auto_list
+#setopt auto_remove_slash
+setopt auto_list
 setopt cdable_vars
 #setopt complete_in_word
-setopt correct
+#setopt correct
 #setopt correct_all
 setopt extended_glob
 setopt extended_history
@@ -62,7 +62,7 @@ setopt ignore_eof
 setopt inc_append_history
 setopt list_ambiguous
 setopt long_list_jobs
-#setopt no_menu_complete
+#setopt menu_complete
 setopt multios
 setopt nohup
 setopt notify

@@ -15,10 +15,8 @@ Plug 'miripiruni/CSScomb-for-Vim'
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'hlissner/vim-multiedit'
 Plug 'csscomb/vim-csscomb'
 Plug 'Lokaltog/vim-powerline'
-Plug 'jiangmiao/auto-pairs'
 
 " Expandregion
 Plug 'terryma/vim-expand-region'
@@ -31,8 +29,10 @@ nnoremap <leader>u :GundoToggle<CR>
 "
 
 Plug 'scrooloose/nerdtree'
-Plug 'ervandew/supertab'
 Plug 'aperezdc/vim-template'
 Plug 'mattn/webapi-vim'
 Plug 'tpope/vim-surround'
+
+" Unity stuffs maybe?
+
 call plug#end()

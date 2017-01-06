@@ -183,5 +183,4 @@ if !has('gui')
     set term=$TERM
 endif
 
-
 runtime plugins.vim
