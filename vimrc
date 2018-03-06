@@ -62,7 +62,7 @@ nmap ,s :source ~/.vimrc<CR>
 nmap ,t :s#<[^>]\+>##g<CR>:nohls<CR>
 nmap ,u :GundoToggle<CR>
 nmap ,v :tabe ~/.vimrc<CR>
-nmap ,r <Esc>:reg<CR>
+"nmap ,r <Esc>:reg<CR>
 set pastetoggle=<f2>
 nmap <F3> :%s/\s\+$//<CR>
 nmap <F5> :set invnumber<CR>
@@ -88,7 +88,7 @@ let g:user_emmet_prev_key = '<C-K>'
 let g:user_emmet_mode='a'
 " nmap <s-tab> :call emmet#expandAbbr(3,'')<CR>
 map <C-tab> :call emmet#expandAbbr(3,'')<CR>
-let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.snippets.json')), "\n"))
+"let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.snippets.json')), "\n"))
 
 " Tab Management
 set tabpagemax=15
@@ -179,6 +179,9 @@ set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 set showtabline=2
+autocmd Filetype javascript setlocal ts=2 sw=2 expandtab
+autocmd Filetype html setlocal ts=2 sw=2 expandtab
+
 if !has('gui')
     set term=$TERM
 endif

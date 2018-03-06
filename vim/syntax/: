@@ -1,0 +1,90 @@
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Link, Route, hashHistory } from 'react-router-dom';
+import './App.css';
+
+class App extends Component {
+
+    state = {
+        gists: null
+    }
+
+    componentDidMount() {
+        fetch('https://api.github.com/gists')
+            .then(res => res.json())
+            .then(gists => {
+                this.setState({ gists })
+            });
+    }
+
+    render() {
+        const { gists } = this.state;
+        window.gists = gists
+        return (
+            <Router history={hashHistory}>
+                <Root>
+                    <Sidebar>
+                        { gists ? (
+                            gists.map(gist => (
+                                    <SidebarItem key={gist.id}>
+                                        <Link to={ `/gist/${gist.id}` }>
+                                            {gist.description || '[no desc]'}
+                                        </Link>
+                                    </SidebarItem>
+                            )) 
+                        ) : (
+                                <div> Loading... </div>
+                            )
+                        }
+                    </Sidebar>
+                    <Main>
+                        <h1> Welcome </h1>
+                        <Route path="/gist/:gistId" component={Gist} />
+                    </Main>
+                </Root>
+            </Router>
+        );
+    }
+}
+
+const Gist = ({ match }) => (
+    <div>
+        {match.params.gistId}
+    </div>
+)
+
+const Root = (props) => (
+    <div style={{
+        display: "flex",
+    }} {...props}/>
+)
+
+const Sidebar = (props) => (
+    <div style={{
+        width: '33vw',
+        height: '100vh',
+        overFlow: 'auto',
+        background: '#eee'
+    }} {...props}/>
+)
+
+const SidebarItem = (props) => (
+    <div style={{
+        overFlow: 'hidden',
+        whiteSpace: 'nowrap',
+        textOverFlow: 'ellipsis',
+        padding: '5px 10px',
+    }} {...props}/>
+)
+
+const Main = (props) => (
+    <div style={{
+        flex: 1,
+        height: '100vh',
+        overFlow: 'auto',
+        background: '#FFF',
+        padding: '1em',
+    }} {...props}/>
+)
+
+
+export default App;

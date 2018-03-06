@@ -1,0 +1,7 @@
+#!/bin/sh
+sudo /usr/sbin/apachectl -k restart
+
+do_taskd=$1
+shift
+# FIXME: not doing taskd by default since sudo will prompt for password
+[ -n  "$do_taskd" ] && sudo /var/hp/internal/bin/taskd_init.sh reload

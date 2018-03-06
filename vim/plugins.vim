@@ -17,6 +17,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'csscomb/vim-csscomb'
 Plug 'Lokaltog/vim-powerline'
+Plug 'leafgarland/typescript-vim'
+Plug 'isRuslan/vim-es6'
+Plug 'chriskempson/base16-vim'
+Plug 'jelera/vim-javascript-syntax'
 
 " Expandregion
 Plug 'terryma/vim-expand-region'
